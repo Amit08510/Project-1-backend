@@ -10,7 +10,11 @@ const app = express();
 connectDB();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: ["https://bootstrap-js-zvv5.onrender.com", "https://project-1-backend-cgpd.onrender.com"],
+    credentials: true,
+}));
+
 app.use(express.json());
 
 // Routes
@@ -19,3 +23,4 @@ app.use("/api/users", userRoutes);
 // Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
